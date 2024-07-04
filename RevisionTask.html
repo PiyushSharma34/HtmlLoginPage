@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+  
+      form {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: #fff;
+        border: 1px solid #3a1b1b;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      }
+  
+      label {
+        display: block;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+  
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      input[type="file"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 5px;
+      }
+  
+      input[type="submit"],
+      input[type="reset"] {
+        width: 100%;
+        padding: 8px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+  
+      input[type="submit"]:hover,
+      input[type="reset"]:hover {
+        background-color: #45a049;
+      }
+  
+      select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 5px;
+      }
+  
+      textarea {
+        height: 100px;
+        border-radius: 10px;
+      }
+      h2{
+        text-align: center;
+        color: blue;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 2rem;
+        margin-bottom: -30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>This is Application Form For Rivision </h2>
+    <form>
+      <!-- Text Input -->
+      <label for="name">Name:</label>
+      <input type="text" id="name" autofocus required minlength="3" maxlength="20" placeholder="Name"><br>
+  
+      <!-- File Input -->
+      <label for="profile-pic">Profile Pic:</label>
+      <input type="file" id="profile-pic" required accept=".jpg"><br>
+  
+      <!-- Email Input -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" value="test@gmail.com"><br>
+  
+      <!-- Number Input -->
+      <label for="age">Age:</label>
+      <input type="number" id="age" min="18" max="100" step="4">
+  
+      <!-- Pattern Matching Input -->
+      <label for="pin-code">PIN Code:</label>
+      <input type="text" id="pin-code" required pattern="[0-9]{6}" title="Please Enter 6 Digit Pin Code"><br>
+  
+      <!-- Read-only Text Input -->
+      <label for="nsti-name">NSTI NAME:</label>
+      <input type="text" id="nsti-name" value="NSTI Bengaluru" readonly><br>
+  
+      <!-- Dropdown Select -->
+      <label for="state">State:</label>
+      <select id="state">
+        <option value="">Select</option>
+        <option value="Odisha" selected>Odisha</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Jharkhand">Jharkhand</option>
+      </select><br>
+  
+      <!-- Textarea -->
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" minlength="20" maxlength="30"></textarea><br>
+  
+  <input type="submit">
+
+</body>
+</html>
