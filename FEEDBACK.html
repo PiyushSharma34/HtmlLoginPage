@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feedback Form</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<style>
+		.feedback-form {
+
+			width: 40%;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #f9f9f9;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			animation: fadeIn 1s ease-in;
+		}
+
+		h2 {
+			text-align: center;
+			margin-top: 5rem;
+			animation: bounceIn 1s ease-in;
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+		}
+
+		.form-control {
+			height: 40px;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ccc;
+		}
+
+		.form-control:focus {
+			border-color: #aaa;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.btn-danger {
+			background-color: #dc3545;
+			border-color: #dc3545;
+			padding: 10px 20px;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		.btn-danger:hover {
+			background-color: #c82333;
+			border-color: #c82333;
+		}
+
+		textarea.form-control {
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Feedback Form</h2>
+		<div class="feedback-form">
+			<form id="feedback-form">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type="text" class="form-control" id="name" name="name" required>
+				</div>
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" class="form-control" id="email" name="email" required>
+				</div>
+				<div class="form-group">
+					<label for="message">Message:</label>
+					<textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary " id="submit-btn" disabled>Send Feedback</button>
+			</form>
+		</div>
+
+		<!-- Bootstrap Modal -->
+		<div class="modal fade" id="feedback-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Feedback Submitted!</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Thank you for submitting your feedback!</p>
+						<p>Your name: <span id="modal-name"></span></p>
+						<p>Your email: <span id="modal-email"></span></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#feedback-form input, #feedback-form textarea').on('keyup', function() {
+				if ($('#name').val() && $('#email').val() && $('#message').val()) {
+					$('#submit-btn').prop('disabled', false);
+				} else {
+					$('#submit-btn').prop('disabled', true);
+				}
+			});
+
+			$('#feedback-form').submit(function(event) {
+				event.preventDefault();
+
+				var name = $('#name').val();
+				var email = $('#email').val();
+				var message = $('#message').val();
+
+				$('#feedback-modal').modal('show');
+
+				$('#modal-name').text(name);
+				$('#modal-email').text(email);
+
+				$('#name').val('');
+				$('#email').val('');
+				$('#message').val('');
+
+				$('#submit-btn').prop('disabled', true);
+			});
+		});
+	</script>
+</body>
+</html>

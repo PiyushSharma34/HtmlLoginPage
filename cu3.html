@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact and Feedback</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+.contact-form img {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.contact-form img:hover {
+  transform: scale(1.2);
+}
+
+.contact-form img.facebook {
+  color: #3b5998;
+}
+
+.contact-form img.instagram {
+  color: #e1306c;
+}
+
+.contact-form img.twitter {
+  color: #1da1f2;
+}
+
+.contact-form img.github {
+  color: #333;
+}
+  .contact-form {
+    font-weight: bolder;
+    height: 25rem;
+    padding: 10px;
+            width: 50%;
+            float: left;
+            margin-left: -22rem;
+            margin-top: 5rem;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            border-radius: 20px;
+        }
+        .feedback-form {
+
+width: 40%;
+margin: 40px auto;
+
+padding: 20px;
+background-color: #f9f9f9;
+border: 1px solid #c5b9b9;
+border-radius: 10px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+animation: fadeIn 1s ease-in;
+}
+
+h2 {
+text-align: center;
+margin-top: 5rem;
+animation: bounceIn 1s ease-in;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.form-control {
+height: 40px;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+}
+
+.form-control:focus {
+border-color: #aaa;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+background-color: #dc3545;
+border-color: #dc3545;
+padding: 10px 20px;
+font-size: 16px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.btn-danger:hover {
+background-color: #c82333;
+border-color: #c82333;
+}
+
+h4{
+    text-align: center;
+}
+
+textarea.form-control {
+height: 100px;
+}
+
+.container{
+    float: right;
+    margin-top: -35rem;
+   position: relative;
+
+
+}
+.con{
+    float: left;
+    font-size: 30px;
+    }
+
+
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h4 class="con">Contact Us</h4>
+    <div class="card contact-form">
+        
+        <div class="card-header ">
+           
+        </div>
+        <div class="card-body">
+            <form action="submit_contact.php" method="post">
+                <div class="form-group">
+                    <label>Project Name: City Guide</label>
+                </div>
+                <div class="form-group">
+                    <label>Email: city.guide123@gmail.com</label>
+                </div>
+                <div class="form-group">
+                    <label>Phone No: +91xxxxxxxxxx</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Address : 8, Master Zahurul Hasan Rd, Old Katra, Prayagraj, Uttar Pradesh 211002</label>
+                </div>
+
+
+                <div class="form-group">
+                    <img src="facebook.png" alt="facebook" style="height: 10%;width: 10%;">
+                    <img src="instagram.jpeg" alt="instagram" style="height: 7%;width: 7%;">
+                    <img src="twiter.png" alt="twiter" style="height: 10%;width: 10%;">
+                    <img src="github.png" alt="github" style="height: 6%;width: 6%;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Feedback Form</h2>
+
+    <div class="feedback-form" style="margin-left: 28rem;">
+        <form id="feedback-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary " id="submit-btn" disabled>Send Feedback</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="feedback-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Feedback Submitted!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Thank you for submitting your feedback!</p>
+                    <p>Your name: <span id="modal-name"></span></p>
+                    <p>Your email: <span id="modal-email"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#feedback-form input, #feedback-form textarea').on('keyup', function() {
+            if ($('#name').val() && $('#email').val() && $('#message').val()) {
+                $('#submit-btn').prop('disabled', false);
+            } else {
+                $('#submit-btn').prop('disabled', true);
+            }
+        });
+
+        $('#feedback-form').submit(function(event) {
+            event.preventDefault();
+
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var message = $('#message').val();
+
+            $('#feedback-modal').modal('show');
+
+            $('#modal-name').text(name);
+            $('#modal-email').text(email);
+
+            $('#name').val('');
+            $('#email').val('');
+            $('#message').val('');
+
+            $('#submit-btn').prop('disabled', true);
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
